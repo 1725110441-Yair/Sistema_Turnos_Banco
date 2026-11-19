@@ -1,0 +1,88 @@
+$def with ()
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Solicitar Turno - Banco Central</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f6f9;
+            color: #1f2d3d;
+        }
+        .btn-banco {
+            background-color: #0b3c5d;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .btn-banco:hover {
+            background-color: #1d5f8a;
+            color: #ffffff;
+        }
+        .card {
+            border: 1px solid #dcdfe6;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .form-label {
+            font-weight: 600;
+            color: #0b3c5d;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar border-bottom bg-white">
+        <div class="container">
+            <span class="navbar-brand mb-0 fw-bold" style="color: #0b3c5d;">Banco Central</span>
+            <a href="/" class="btn btn-outline-secondary btn-sm">Regresar al Tablero</a>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+
+                <h2 class="text-center mb-4 fw-bold" style="color: #0b3c5d;">Solicitar Nuevo Turno</h2>
+
+                <form method="POST" action="/registrar" class="card p-4 bg-white rounded-3">
+
+                    <div class="mb-3">
+                        <label for="cliente" class="form-label">Nombre del Cliente</label>
+                        <input type="text" class="form-control" id="cliente" name="cliente" placeholder="Ej. Juan Pérez" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tramite" class="form-label">Tipo de Trámite</label>
+                        <select class="form-select" id="tramite" name="tramite" required>
+                            <option value="Depósito en Ventanilla">Depósito en Ventanilla</option>
+                            <option value="Retiro en Efectivo">Retiro en Efectivo</option>
+                            <option value="Pago de Servicios">Pago de Servicios</option>
+                            <option value="Apertura de Cuenta">Apertura de Cuenta</option>
+                            <option value="Asesoría Financiera">Asesoría Financiera</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tiempo" class="form-label">Tiempo Estimado (minutos)</label>
+                        <input type="number" class="form-control" id="tiempo" name="tiempo" value="5" min="1" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="tipo" class="form-label">Tipo de Atención</label>
+                        <select class="form-select" id="tipo" name="tipo">
+                            <option value="Normal">Normal (Ventanilla General)</option>
+                            <option value="Prioritario">Prioritario (Adulto Mayor / Discapacidad / Embarazo)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-banco w-100 py-2">Emitir Turno</button>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
